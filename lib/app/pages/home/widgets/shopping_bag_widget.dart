@@ -13,8 +13,9 @@ class ShoppingBagWidget extends StatelessWidget {
   Future<void> _goOrder(BuildContext context) async {
     final navigator = Navigator.of(context);
     final sp = await SharedPreferences.getInstance();
-    if (!sp.containsKey('accessToken')) {
+    if (!sp.containsKey('access_token')) {
       final loginResult = await navigator.pushNamed('/auth/login');
+      //print(loginResult);
     }
   }
 
@@ -24,7 +25,7 @@ class ShoppingBagWidget extends StatelessWidget {
         .fold<double>(0.0, (total, element) => total += element.totalPrice)
         .currencyPTBR;
     return Container(
-      padding: EdgeInsets.all(20),
+      padding: const EdgeInsets.all(20),
       width: context.screenWidth,
       height: 90,
       decoration: const BoxDecoration(

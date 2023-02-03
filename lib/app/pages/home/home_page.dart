@@ -17,8 +17,7 @@ class HomePage extends StatefulWidget {
   State<HomePage> createState() => _HomePageState();
 }
 
-class _HomePageState extends BaseState<HomePage, HomeController>
-    with Loader, Messages {
+class _HomePageState extends BaseState<HomePage, HomeController> {
   @override
   void onReady() {
     controller.loadProducts();
